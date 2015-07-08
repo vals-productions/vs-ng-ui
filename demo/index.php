@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ValS NG demo. AngularJS data entry directives</title>
+        <link rel="stylesheet" type="text/css" href="dependencies/angular-csp.css">
+        <link rel="stylesheet" type="text/css" href="dependencies/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="dependencies/bootstrap-theme.min.css">
+        
+        <script src="dependencies/jquery.min.js"></script>
+        <script src="dependencies/bootstrap.min.js"></script>
+        
+        <script type="text/javascript" src="dependencies/angular.min.js"></script>
+        <script type="text/javascript" src="dependencies/angular-route.min.js"></script>
+        <script type="text/javascript" src="../dist/vsng-dir-ui.js"></script>
+        <script>
+            var app = angular.module('vsngDemoApp', ['ngRoute', 'vs.ng.ui']).config([
+                '$routeProvider',
+                function($routeProvider){
+            }]);
+            app.controller('vsngDemoCtrl', function($scope, $http) {
+            });
+        </script>
+    </head>
+    <body ng-app="vsngDemoApp">
+        <div ng-controller="vsngDemoCtrl">
+            <div class="container">
+                <div class="jumbotron">
+                <h1> ValS NG demo </h1>
+                
+                <p> The collection of UI widgets that are 
+                    <a href='https://angularjs.org/'> AngularJS </a> directives. The goal was to
+                    develop components that will not require keyboard usage in
+                    order to enter data. This might be important if your web site is supporting
+                    mobile version.
+                    
+                <p> The main goal of the development was to come up with data and time entry 
+                    widgets that would still be use-able at mobile applications by being reasonably
+                    user friendly and <u><i>not taking too much space at the screen</i></u> at the
+                    same time. You can use these components to enter date and time, mimic drop down
+                    list and some other UI elements without getting to the keyboard or using
+                    phone's native drop down list substitution widget.
+                    
+                <p> At the moment this demo is being hosted at some low bandwidth environment,
+                    but hope it is still somehow use-able.
+                    
+                <p> The library is going to be hosted at https://github.com/vkmsua    
+                    
+                <h2>Bootstrap styled examples </h2>
+                <p> This section is using <a href="http://getbootstrap.com"> Bootstrap </a> for element styling.
+                <div class="row">
+                    <div class='col-sm-12'>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">On/Off Checkbox:</span>
+                            <vs-ng-toggle-button
+                                ng-model="form.cbOnOff"
+                                ng-classes="btn btn-default btn-md$$btn btn-success btn-md"
+                                ng-span-class="glyphicon glyphicon-retweet"
+                                ng-labels="Off$$On">
+                            </vs-ng-toggle-button>
+                            &nbsp ng-model: {{form.cbOnOff}}
+                        </div>
+                    </div>
+                    <div class='col-sm-12'>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">Single selection:</span>
+                            <vs-ng-toggle-button
+                                ng-model="form.rb1"
+                                ng-span-class="glyphicon glyphicon-retweet"
+                                ng-classes="btn btn-success btn-md"
+                                ng-keys="yester$$today$$tomorr"
+                                ng-labels="Yesterday$$Today$$Tomorrow">
+                            </vs-ng-toggle-button>
+                            &nbsp ng-model: {{form.rb1}}
+                        </div>
+                    </div>
+                    <div class='col-sm-12'>
+                        <div class="input-group">
+                            <span class="input-group-addon" id="basic-addon1">Multiple selection:</span>
+                            <div class="btn-group btn-group-justified">
+                                <vs-ng-toggle-button 
+                                    ng-model="form.weekd.suDay"
+                                    ng-span-class="glyphicon glyphicon-retweet"
+                                    ng-classes="btn btn-default btn-md$$btn btn-success btn-md" ng-labels="Su$$Su"></vs-ng-toggle-button>
+                                <vs-ng-toggle-button 
+                                    ng-model="form.weekd.moDay"
+                                    ng-span-class="glyphicon glyphicon-retweet"
+                                    ng-classes="btn btn-default btn-md$$btn btn-success btn-md" ng-labels="Mo$$Mo"></vs-ng-toggle-button>
+                                <vs-ng-toggle-button 
+                                    ng-model="form.weekd.tuDay"
+                                    ng-span-class="glyphicon glyphicon-retweet"
+                                    ng-classes="btn btn-default btn-md$$btn btn-success btn-md" ng-labels="Tu$$Tu"></vs-ng-toggle-button>
+                                <vs-ng-toggle-button 
+                                    ng-model="form.weekd.weDay"
+                                    ng-span-class="glyphicon glyphicon-retweet"
+                                    ng-classes="btn btn-default btn-md$$btn btn-success btn-md" ng-labels="We$$We"></vs-ng-toggle-button>
+                                <vs-ng-toggle-button 
+                                    ng-model="form.weekd.thDay"
+                                    ng-span-class="glyphicon glyphicon-retweet"
+                                    ng-classes="btn btn-default btn-md$$btn btn-success btn-md" ng-labels="Th$$Th"></vs-ng-toggle-button>
+                                <vs-ng-toggle-button 
+                                    ng-model="form.weekd.frDay"
+                                    ng-span-class="glyphicon glyphicon-retweet"
+                                    ng-classes="btn btn-default btn-md$$btn btn-success btn-md" ng-labels="Fr$$Fr"></vs-ng-toggle-button>
+                                <vs-ng-toggle-button 
+                                    ng-model="form.weekd.saDay"
+                                    ng-span-class="glyphicon glyphicon-retweet"
+                                    ng-classes="btn btn-default btn-md$$btn btn-success btn-md" ng-labels="Sa$$Sa"></vs-ng-toggle-button>
+                            </div>
+                        </div>
+                            &nbsp ng-model: {{form.weekd}}
+                    </div>
+                    <div class='col-sm-12'>
+                        <vs-ng-time ng-init="form.time='07:55 PM'" ng-cls="bootstrap.default" ng-label="Time" ng-model="form.time" ></vs-ng-time>   
+                        &nbsp ng-model: {{form.time}}
+                    </div>
+                    <div class='col-sm-12'>
+                        <vs-ng-date ng-init="form.date='2015-03-15'" ng-cls="bootstrap.default" ng-label="Date" ng-model="form.date" ></vs-ng-date>   
+                        &nbsp ng-model: {{form.date}}
+                    </div>
+                </div>
+
+                <h2>Non styled examples </h2>
+                <p> This section does not look sleek, but demonstrates
+                    the components are not dependent on anything but AngularJS
+                    and can be styled independently per your project's requirements.
+                <div class="row">
+                    <div class='col-sm-12'>
+                        <h4>No CSS date</h4>
+                        <vs-ng-date ng-cls="" ng-label="" ng-model="form.date" ></vs-ng-date>
+                        <h5> ng-model: {{form.date}} </h5>
+                    </div>
+                    <div class='col-sm-12'>
+                        <div class="input-group">
+                            <h4> Single selection (no styles):</h4>
+                            <vs-ng-toggle-button
+                                ng-model="form.rb1"
+                                ng-keys="yester$$today$$tomorr"
+                                ng-labels="Yesterday$$Today$$Tomorrow">
+                            </vs-ng-toggle-button>
+                            <h5> ng-model: {{form.rb1}} </h5>
+                        </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="jumbotron">
+                    <h2>ValS productions, 2015</h2>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
