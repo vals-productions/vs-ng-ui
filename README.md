@@ -4,7 +4,7 @@
 
 The collection of UI widgets that are AngularJS directives. The goal was to 
 develop components that will not require keyboard usage in order to enter data. 
-This might be important if your web site is supporting mobile version.
+This might be important if your web site supports mobile version.
 
 The main goal of the development was to come up with data and time entry 
 widgets that would still be use-able in mobile applications by being reasonably 
@@ -14,7 +14,9 @@ and some other UI elements without getting to the keyboard or using phone's
 native drop down list substitution widget.
 
 This doc assumes you know AngularJS to some extent. Some examples are using
-Bootstrap which is optional.
+Bootstrap which is optional. Widgets are not dependent on bootstrap which is
+demonstrated in examples, but I used bootstrap for styling them in my production
+environment.
 
 ## In progress
 
@@ -34,7 +36,6 @@ Check the demo [a link](https://sonet.dynet.com/vs-ng-ui/demo/index.html)
 You need Angular JS to be included in your html page. Bootstrap is optional. 
 You also need to include the actual vsng-dir-ui.js .
 Here's the example:
-
 ```
 <link rel="stylesheet" type="text/css" href="dependencies/angular-csp.css">
 <link rel="stylesheet" type="text/css" href="dependencies/bootstrap.min.css">
@@ -47,10 +48,8 @@ Here's the example:
 <script type="text/javascript" src="dependencies/angular-route.min.js"></script>
 <script type="text/javascript" src="../dist/vsng-dir-ui.js"></script>
 ``` 
-
 As usual, you need to declare AngularJS module and controller. 
 Here's the example. Note how vs.ng.ui is mentioned in module dependencies.
-
 ```
 <script>
     var app = angular.module('vsngDemoApp', ['ngRoute', 'vs.ng.ui']).config([
@@ -61,7 +60,6 @@ Here's the example. Note how vs.ng.ui is mentioned in module dependencies.
     });
 </script>
 ```
-
 Next, you can start using directives. If anything does not work, please check 
 working example at the demo page and view demo's source. I'm pretty much using 
 snippets from that page in this doc.
@@ -86,14 +84,14 @@ correspondingly, that you can use instead of the traditional check box.
     ng-model="form.cbOnOff"
     ng-classes="btn btn-default btn-md$$btn btn-success btn-md"
     ng-span-class="glyphicon glyphicon-retweet"
-    ng-labels="Off$$On">
+    ng-labels="No$$Yes">
 </vs-ng-toggle-button>
 ```
 The above example provides, pretty much, the same functionality as the 
 "Minimalistic example", but we would like to show the user No\Yes labels
 instead of On\Off, so we specified the labels as $$ delimited strings:
 ```
-ng-labels="Off$$On"
+ng-labels="No$$Yes"
 ```
 Also, we wanted to assign a style to each of the values so that the label
 looks "disabled" when "Off" and enabled when "On", or, "Yes" in this
@@ -153,28 +151,33 @@ we specify just one class that will be used for all of them:
 ```
 ng-classes="btn btn-success btn-md"
 ```
+Alternatively, we could specify styles individually with $$ delimiter.
+
 The new element here is ng-keys. It specified corresponding key, or, ng model 
 value for each of the labels. If not used, it would be just 0 based index of
-the label. It is convenient if you retrieve values from the database and
-they have keys related to labels that are different form 0 based index. Could
-have also been some numbers, like
+the label. It is convenient if keys related to labels are different form 0 
+based index. Could have also been some numbers, like
 ```
 ng-keys="10$$17$$25"
 ```
+Please make sure that ng-label number of elements matches ng-key number of
+elements. If ng-classes provides delimited values, their number should also
+match.
+
 #### Date entry (Bootstrap)
 
-This widget changes its values when the user click year, month or day elements.
+This widget changes its values when the user clicks year, month or day elements.
 The direction "<" or ">" element specifies whether the value is incremented 
 or decremented.
 
 The widget is based on JavaScript's Date object, so that should be taken into
 consideration when some specific date changes happen, like, while the date
-is set to 31 st of the month that does contain the date and the the month is
+is set to 31st of the month that does contain the date and then the month is
 being changed to the one that does not contain the date. 
 
 This widget contains built in label (might need to decouple) specified in
-ng-label attribute. ng-init specifies the initial value for the widget and, also, 
-demonstrates its format which is YYYY-MM-DD.
+ng-label attribute. ng-init specifies the initial value for the widget and, 
+also, demonstrates its format which is YYYY-MM-DD.
 
 ```
 <vs-ng-date 
@@ -189,7 +192,7 @@ by using
 ```
 ng-cls="bootstrap.default" 
 ```
-otherwise, you could specify the following styles 'manually':
+otherwise, you could specify the following style attributes 'manually':
 ```
 ng-grp-cls="btn-group btn-group-justified";
 ng-label-cls ="btn btn-default btn-sm";
