@@ -23,11 +23,11 @@ environment.
 This project was tested with AngularJS v1.3.15, so should be compatible with
 newer versions as well. Bootstrap v3.3.4 was used for styling the widgets.
 
-## In progress
+## Installation
 
-The repository has been recently checked in, so documentation is in progress
-at the moment. Some other amenities like bower install might also be added to
-the repo soon.
+```
+bower install vs-ng-ui
+```
 
 ## Demo
 
@@ -227,10 +227,5 @@ By default minutes have 5 min increment, which you can overwrite
 ```
 ng-step="1"
 ```
-
-## Installation
-
-I'll work on packaging with bower. For right now you can just include
-the content of the dist directory in your project.
 
 ### End
