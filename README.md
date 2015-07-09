@@ -18,6 +18,11 @@ Bootstrap which is optional. Widgets are not dependent on bootstrap which is
 demonstrated in examples, but I used bootstrap for styling them in my production
 environment.
 
+## Dependencies
+
+This project was tested with AngularJS v1.3.15, so should be compatible with
+newer versions as well. Bootstrap v3.3.4 was used for styling the widgets.
+
 ## In progress
 
 The repository has been recently checked in, so documentation is in progress
