@@ -22,14 +22,11 @@ environment.
 
 The repository has been recently checked in, so documentation is in progress
 at the moment. Some other amenities like bower install might also be added to
-the repo in the future.
+the repo soon.
 
 ## Demo
 
-Please, note, the following demo runs under self signed SSL certificate, so
-you might need to accept that in order to proceed. It's just a demo page.
-
-Check the demo [a link](https://sonet.dynet.com/vs-ng-ui/demo/index.html)
+Check the demo [a link](http://vals-productions.github.io/vs-ng-ui/)
 
 ## Usage
 
