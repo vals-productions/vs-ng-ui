@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>ValS Productions vs-ng-ui demo. AngularJS data entry widgets</title>
+        <title>AngularJS calendar, time and data entry widgets</title>
         <link rel="stylesheet" type="text/css" href="dependencies/angular-csp.css">
         <link rel="stylesheet" type="text/css" href="dependencies/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" href="dependencies/bootstrap-theme.min.css">
@@ -26,10 +26,10 @@
         <div ng-controller="vsngDemoCtrl">
             <div class="container">
                 <div class="jumbotron">
-                <h1> ValS Productions vs-ng-ui demo </h1>
+                <h1> AngularJS compact calendar, time and data entry widgets </h1>
                 
                 <p> The collection of UI widgets that are 
-                    <a href='https://angularjs.org/'> AngularJS </a> directives. The goal was to
+                    <a href='https://angularjs.org/'> AngularJS </a> directives. General goal was to
                     develop components that will not require keyboard usage in
                     order to enter data. This might be important if your web site is
                     mobile oriented.
@@ -40,9 +40,6 @@
                     same time. You can use these components to enter date and time, mimic drop down
                     list and some other UI elements without getting to the keyboard or using
                     phone's native drop down list substitution widget.
-                    
-                <p> At the moment this demo is being hosted at some low bandwidth environment,
-                    but hope it is still somehow use-able.
                     
                 <p> The toolkit is hosted at <a href ="https://github.com/vals-productions/vs-ng-ui"> GitHub </a>    
                     
@@ -58,8 +55,10 @@
                                 ng-span-class="glyphicon glyphicon-retweet"
                                 ng-labels="No$$Yes">
                             </vs-ng-toggle-button>
-                            &nbsp ng-model: {{form.cbOnOff}}
+                            
                         </div>
+                        <h5>
+                            &nbsp ng-model: {{form.cbOnOff}}</h5>
                     </div>
                     <div class='col-sm-12'>
                         <div class="input-group">
@@ -71,8 +70,9 @@
                                 ng-keys="yester$$today$$tomorr"
                                 ng-labels="Yesterday$$Today$$Tomorrow">
                             </vs-ng-toggle-button>
-                            &nbsp ng-model: {{form.rb1}}
+                            
                         </div>
+                        <h5> &nbsp ng-model: {{form.rb1}} </h5>
                     </div>
                     <div class='col-sm-12'>
                         <div class="input-group">
@@ -108,15 +108,15 @@
                                     ng-classes="btn btn-default btn-md$$btn btn-success btn-md" ng-labels="Sa$$Sa"></vs-ng-toggle-button>
                             </div>
                         </div>
-                            &nbsp ng-model: {{form.weekd}}
+                        <h5>&nbsp ng-model: {{form.weekd}}</h5>
                     </div>
                     <div class='col-sm-12'>
                         <vs-ng-time ng-init="form.time='07:55 PM'" ng-cls="bootstrap.default" ng-label="Time" ng-model="form.time" ></vs-ng-time>   
-                        &nbsp ng-model: {{form.time}}
+                        <h5> &nbsp ng-model: {{form.time}} </h5>
                     </div>
                     <div class='col-sm-12'>
                         <vs-ng-date ng-init="form.date='2015-03-15'" ng-cls="bootstrap.default" ng-label="Date" ng-model="form.date" ></vs-ng-date>   
-                        &nbsp ng-model: {{form.date}}
+                        <h5> &nbsp ng-model: {{form.date}} </h5>
                     </div>
                 </div>
 
@@ -147,8 +147,9 @@
                             <vs-ng-toggle-button
                                 ng-model="form.cbOnOff">
                             </vs-ng-toggle-button>
-                            &nbsp ng-model: {{form.cbOnOff}}
+                            
                         </div>
+                        <h5>&nbsp ng-model: {{form.cbOnOff}} </h5>
                     </div>
                     
                 </div>
