@@ -224,7 +224,7 @@ format in ng-init.
     ng-label="Time" 
     ng-model="form.time" >
 </vs-ng-time>   
-
+```
 By default minutes have 5 min increment, which you can overwrite 
 ```
 ng-step="1"
