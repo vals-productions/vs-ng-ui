@@ -1,6 +1,6 @@
-# vs-ng-ui documentation
+# Compact Calendar, Time and data entry widgets based on AngularJS.
 
-Compact Calendar, Time and data entry widgets based on AngularJS.
+vs-ng-ui documentation
 
 ## Overview
 
